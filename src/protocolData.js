@@ -111,86 +111,36 @@ export const protocolData = {
             "id": "5",
             "nombre": "PALPACIÓN DEL MÚSCULO MASETERO",
             "tipo": "tabla_checkbox",
-            "columnas": ["Parámetro", "0", "1", "2", "3", "Observaciones"],
+            "columnas": ["Parámetro", "Observaciones"],
             "filas": [
-                {
-                    "parametro": "Tono Muscular",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                },
-                {
-                    "parametro": "Elasticidad",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                },
-                {
-                    "parametro": "Presencia De Puntos Gatillo",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                },
-                {
-                    "parametro": "Simetría A La Contracción",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                }
+                { "item": "Tono Muscular", "observaciones": "" },
+                { "item": "Elasticidad", "observaciones": "" },
+                { "item": "Presencia De Puntos Gatillo", "observaciones": "" },
+                { "item": "Simetría A La Contracción", "observaciones": "" }
             ]
         },
         {
             "id": "6",
             "nombre": "MOVILIDAD MANDIBULAR",
             "tipo": "tabla_checkbox",
-            "columnas": ["Movimiento", "0", "1", "2", "3", "Observaciones"],
+            "columnas": ["Movimiento", "Observaciones"],
             "filas": [
-                {
-                    "movimiento": "Apertura Bucal",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": "",
-                    "campo_extra": { "nombre": "mm", "valor": "" }
-                },
-                {
-                    "movimiento": "Cierre Mandibular",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                },
-                {
-                    "movimiento": "Lateralización Derecha",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                },
-                {
-                    "movimiento": "Lateralización Izquierda",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                },
-                {
-                    "movimiento": "Protrusión",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                }
+                { "item": "Apertura Bucal", "observaciones": "", "campo_extra": { "nombre": "mm", "valor": "" } },
+                { "item": "Cierre Mandibular", "observaciones": "" },
+                { "item": "Lateralización Derecha", "observaciones": "" },
+                { "item": "Lateralización Izquierda", "observaciones": "" },
+                { "item": "Protrusión", "observaciones": "" }
             ]
         },
         {
             "id": "7",
             "nombre": "FUERZA Y RESISTENCIA DEL MASETERO",
             "tipo": "tabla_checkbox",
-            "columnas": ["Ítem", "0", "1", "2", "3", "Observaciones"],
+            "columnas": ["Ítem", "Observaciones"],
             "filas": [
-                {
-                    "item": "Fuerza De Mordida Funcional",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                },
-                {
-                    "item": "Mantención De Contracción",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": "",
-                    "campo_extra": { "nombre": "seg", "valor": "" }
-                },
-                {
-                    "item": "Fatiga Precoz",
-                    "valores": { "0": false, "1": false, "2": false, "3": false },
-                    "observaciones": ""
-                }
+                { "item": "Fuerza De Mordida Funcional", "observaciones": "" },
+                { "item": "Mantención De Contracción", "observaciones": "", "campo_extra": { "nombre": "seg", "valor": "" } },
+                { "item": "Fatiga Precoz", "observaciones": "" }
             ]
         },
         {
@@ -201,41 +151,21 @@ export const protocolData = {
                     "id": "8.1",
                     "nombre": "Masticación",
                     "tipo": "tabla_checkbox",
-                    "columnas": ["Ítem", "0", "1", "2", "3", "Observaciones"],
+                    "columnas": ["Ítem", "Observaciones"],
                     "filas": [
-                        {
-                            "item": "Patrón Masticatorio",
-                            "valores": { "0": false, "1": false, "2": false, "3": false },
-                            "observaciones": ""
-                        },
-                        {
-                            "item": "Alternancia Bilateral",
-                            "valores": { "0": false, "1": false, "2": false, "3": false },
-                            "observaciones": ""
-                        },
-                        {
-                            "item": "Coordinación Lengua–Masetero",
-                            "valores": { "0": false, "1": false, "2": false, "3": false },
-                            "observaciones": ""
-                        }
+                        { "item": "Patrón Masticatorio", "observaciones": "" },
+                        { "item": "Alternancia Bilateral", "observaciones": "" },
+                        { "item": "Coordinación Lengua–Masetero", "observaciones": "" }
                     ]
                 },
                 {
                     "id": "8.2",
                     "nombre": "Deglución",
                     "tipo": "tabla_checkbox",
-                    "columnas": ["Ítem", "0", "1", "2", "3", "Observaciones"],
+                    "columnas": ["Ítem", "Observaciones"],
                     "filas": [
-                        {
-                            "item": "Activación Maseterina Adecuada",
-                            "valores": { "0": false, "1": false, "2": false, "3": false },
-                            "observaciones": ""
-                        },
-                        {
-                            "item": "Co-Contracción Patológica",
-                            "valores": { "0": false, "1": false, "2": false, "3": false },
-                            "observaciones": ""
-                        }
+                        { "item": "Activación Maseterina Adecuada", "observaciones": "" },
+                        { "item": "Co-Contracción Patológica", "observaciones": "" }
                     ]
                 }
             ]
@@ -264,11 +194,51 @@ export const protocolData = {
                             "nombre": "Elevadores Mandibulares",
                             "orden_evaluacion_funcional": "Boca Abierta. Evaluador Posiciona Dos Dedos Sobre Incisivos Inferiores, Ejerciendo Fuerza Hacia Abajo, Y Solicita Cierre De La Boca Contra Resistencia.",
                             "registro_cauhepe_netter_0_5": ""
+                        },
+                        {
+                            "letra": "b",
+                            "nombre": "Depresores Mandibulares",
+                            "orden_evaluacion_funcional": "Boca Cerrada. Evaluador Posiciona Dos Dedos Bajo El Mentón, Ejerciendo Fuerza Suave Hacia Arriba, Y Solicita Apertura De La Boca Contra Resistencia.",
+                            "registro_cauhepe_netter_0_5": ""
+                        },
+                        {
+                            "letra": "c",
+                            "nombre": "Propulsores Mandibulares",
+                            "orden_evaluacion_funcional": "Solicitar Adelantamiento De La Mandíbula Mientras El Evaluador Ejerce Fuerza Contraria A Nivel Del Mentón.",
+                            "registro_cauhepe_netter_0_5": ""
+                        },
+                        {
+                            "letra": "d",
+                            "nombre": "Diductores Mandibulares",
+                            "orden_evaluacion_funcional": "Solicitar Lateralización Mandibular Mientras El Evaluador Ejerce Fuerza Opuesta A Nivel Del Cuerpo Mandibular.",
+                            "registro_cauhepe_netter_0_5": ""
                         }
                     ]
                 },
                 {
                     "id": "9.3",
+                    "nombre": "Músculos Peribucales",
+                    "tipo": "tabla_checkbox",
+                    "columnas": ["Músculo", "1", "2", "3", "4", "5", "Observaciones"],
+                    "filas": [
+                        { "item": "Orbicular De Los Labios", "valores": { "1": false, "2": false, "3": false, "4": false, "5": false }, "observaciones": "" },
+                        { "item": "Buccinadores", "valores": { "1": false, "2": false, "3": false, "4": false, "5": false }, "observaciones": "" }
+                    ]
+                },
+                {
+                    "id": "9.4",
+                    "nombre": "Músculos Linguales",
+                    "tipo": "tabla_checkbox",
+                    "columnas": ["Función", "1", "2", "3", "4", "5", "Observaciones"],
+                    "filas": [
+                        { "item": "Protrusión Lingual", "valores": { "1": false, "2": false, "3": false, "4": false, "5": false }, "observaciones": "" },
+                        { "item": "Retracción Lingual", "valores": { "1": false, "2": false, "3": false, "4": false, "5": false }, "observaciones": "" },
+                        { "item": "Elevación Lingual", "valores": { "1": false, "2": false, "3": false, "4": false, "5": false }, "observaciones": "" },
+                        { "item": "Depresión Lingual", "valores": { "1": false, "2": false, "3": false, "4": false, "5": false }, "observaciones": "" }
+                    ]
+                },
+                {
+                    "id": "9.5",
                     "nombre": "Síntesis Clínica",
                     "tipo": "tabla_checkbox",
                     "columnas": ["Interpretación", "Seleccionado", "Observaciones"],
