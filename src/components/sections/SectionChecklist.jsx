@@ -45,14 +45,17 @@ const SectionChecklist = ({ data, onChange }) => {
 
     return (
         <div style={{ marginBottom: '40px' }}>
-            <h2 style={{
-                color: 'var(--color-pistachio)',
-                borderBottom: '1px solid var(--border-color)',
-                paddingBottom: '10px',
-                marginBottom: '20px'
-            }}>
-                {data.id}. {data.nombre}
-            </h2>
+            {data.nombre && (
+                <h3 style={{
+                    color: 'var(--color-pistachio)',
+                    borderBottom: '1px solid var(--border-color)',
+                    paddingBottom: '10px',
+                    marginBottom: '20px'
+                }}>
+                    {data.id ? `${data.id}. ` : ''}{data.nombre}
+                </h3>
+            )}
+
 
             <CheckboxTable
                 columns={data.columnas}

@@ -36,36 +36,11 @@ const SectionContainer = ({ data, onUpdate }) => {
     // --- Render Logic ---
 
     // 1. Diagnosis Section (Section 14)
-    // Detected by presence of 'opciones' and 'plantillas_texto'
     if (data.opciones && data.plantillas_texto) {
         return <SectionDiagnosis data={data} onUpdate={onUpdate} />;
     }
 
-    // 2. Items Section (Section 9.2)
-    // Detected by presence of 'items' array
-    if (data.items) {
-        return <SectionItems data={data} onUpdate={onUpdate} />;
-    }
-
-    // 3. Mixed Blocks (Section 12A - ATM)
-    // Explicit type check
-    if (data.tipo === 'bloque_mixto') {
-        return <SectionMixed data={data} onUpdate={onUpdate} />;
-    }
-
-    // 4. Generic Fields Section (Section 1, 10, 12 subsections, 13)
-    // Condition: has 'campos' and is not a mixed component container
-    if (data.campos && !data.componentes) {
-        return <SectionFields data={data} onChange={handleFieldsChange} />;
-    }
-
-    // 5. Scale Section (Section 2)
-    // Heuristic: ID 2 or name match
-    if (data.id === '2' || (data.nombre && data.nombre.includes('ESCALA DE PUNTUACIÓN'))) {
-        return <SectionScale data={data} />;
-    }
-
-    // 6. Subsections Container (Recursion)
+    // 2. Subsections Container (Recursion)
     if (data.subsecciones) {
         return (
             <div style={{ marginBottom: '40px' }}>
@@ -79,31 +54,58 @@ const SectionContainer = ({ data, onUpdate }) => {
                         {data.id ? `${data.id}. ` : ''}{data.nombre}
                     </h2>
                 )}
-                {data.subsecciones.map((sub, index) => (
-                    <div key={index} style={{ marginLeft: '10px', paddingLeft: '10px', marginBottom: '30px' }}>
-                        <SectionContainer
-                            data={sub}
-                            onUpdate={(newSubData) => handleSubsectionUpdate(index, newSubData)}
-                        />
-                    </div>
-                ))}
+                <div style={{ borderLeft: '2px solid rgba(255,255,255,0.05)', paddingLeft: '20px' }}>
+                    {data.subsecciones.map((sub, index) => (
+                        <div key={index} style={{ marginBottom: '30px' }}>
+                            <SectionContainer
+                                data={sub}
+                                onUpdate={(newSubData) => handleSubsectionUpdate(index, newSubData)}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     }
 
-    // 7. Checkbox Tables (Section 3, 4, 5, 6, 7, 8, 9.3, 9.4)
-    if (data.tipo === 'tabla_checkbox') {
-        return <SectionChecklist data={data} onChange={handleChecklistChange} />;
-    }
-
-    // 8. Fallback for unhandled types
+    // 3. Composite or Single Section
     return (
-        <div style={{ marginBottom: '40px', padding: '20px', border: '1px dashed var(--border-color)', borderRadius: '10px' }}>
-            <h3>{data.id} - {data.nombre}</h3>
-            <p style={{ opacity: 0.5 }}>Tipo: {data.tipo || 'Desconocido'}</p>
-            <pre style={{ overflow: 'auto', maxHeight: '100px', fontSize: '0.8rem', background: 'rgba(0,0,0,0.3)', padding: '10px' }}>
-                {JSON.stringify(data, null, 2)}
-            </pre>
+        <div style={{ marginBottom: '40px' }}>
+            {/* Header for the individual section if it's not a subsection parent */}
+            {(data.nombre || data.lado) && (
+                <h3 style={{
+                    color: 'var(--color-pistachio)',
+                    borderBottom: '1px solid var(--border-color)',
+                    paddingBottom: '10px',
+                    marginBottom: '20px'
+                }}>
+                    {data.id ? `${data.id}. ` : ''}{data.nombre || data.lado}
+                </h3>
+            )}
+
+            {/* 3a. Items Section (Section 9.2) */}
+            {data.items && <SectionItems data={data} onUpdate={onUpdate} />}
+
+            {/* 3b. Mixed Blocks (Section 12A - ATM) */}
+            {data.tipo === 'bloque_mixto' && <SectionMixed data={data} onUpdate={onUpdate} />}
+
+            {/* 3c. Generic Fields Section */}
+            {data.campos && !data.componentes && (
+                <SectionFields data={{ ...data, nombre: "" }} onChange={handleFieldsChange} />
+            )}
+
+            {/* 3d. Checkbox Tables */}
+            {data.tipo === 'tabla_checkbox' && (
+                <SectionChecklist data={{ ...data, nombre: "" }} onChange={handleChecklistChange} />
+            )}
+
+            {/* 3e. Scale Section */}
+            {data.escala && <SectionScale data={data} />}
+
+            {/* Fallback for empty or unknown sections */}
+            {!data.items && !data.subsecciones && data.tipo !== 'bloque_mixto' && !data.campos && !data.escala && data.tipo !== 'tabla_checkbox' && (
+                <div style={{ opacity: 0.5, fontStyle: 'italic' }}>Sección sin contenido definido.</div>
+            )}
         </div>
     );
 };
