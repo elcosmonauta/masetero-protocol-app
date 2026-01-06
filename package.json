@@ -1,6 +1,5 @@
 {
-  "name": "protomassapp",
-  "homepage": "https://italocamposmontenegro-debug.github.io/ProtoMassApp/",
+  "name": "masetero-protocol-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",

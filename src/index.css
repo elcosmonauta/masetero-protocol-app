@@ -1,7 +1,8 @@
 :root {
   --color-purple: #7B2CBF;
   --color-gold: #D4AF37;
-  --color-pistachio: #93C572;
+  --color-pistachio: #CCFF00;
+  /* Updated to Lime Green as requested */
   --bg-color: #000000;
   --text-color: #ffffff;
   --card-bg: rgba(255, 255, 255, 0.05);
@@ -32,7 +33,12 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 300;
   letter-spacing: 1px;
 }
