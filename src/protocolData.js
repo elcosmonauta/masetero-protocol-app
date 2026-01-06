@@ -16,6 +16,40 @@ export const protocolData = {
             ]
         },
         {
+            "id": "2",
+            "nombre": "BRUXISMO",
+            "subsecciones": [
+                {
+                    "nombre": "Tipo de Bruxismo",
+                    "tipo": "tabla_checkbox",
+                    "columnas": ["Categoría", "Selección", "Observaciones"],
+                    "filas": [
+                        { "item": "Bruxismo del Sueño", "valores": { "Selección": false }, "observaciones": "" },
+                        { "item": "Bruxismo Diurno", "valores": { "Selección": false }, "observaciones": "" }
+                    ]
+                },
+                {
+                    "nombre": "Frecuencia",
+                    "tipo": "tabla_checkbox",
+                    "columnas": ["Escala", "Selección", "Observaciones"],
+                    "filas": [
+                        { "item": "Ocasional", "valores": { "Selección": false }, "observaciones": "" },
+                        { "item": "Frecuente", "valores": { "Selección": false }, "observaciones": "" },
+                        { "item": "Diario", "valores": { "Selección": false }, "observaciones": "" }
+                    ]
+                },
+                {
+                    "nombre": "Sonidos Nocturnos Referidos",
+                    "tipo": "tabla_checkbox",
+                    "columnas": ["Opción", "Selección", "Observaciones"],
+                    "filas": [
+                        { "item": "Sí", "valores": { "Selección": false }, "observaciones": "" },
+                        { "item": "No", "valores": { "Selección": false }, "observaciones": "" }
+                    ]
+                }
+            ]
+        },
+        {
             "id": "3",
             "nombre": "OBSERVACIÓN CLÍNICA – MASETERO EN REPOSO",
             "subsecciones": [
@@ -260,9 +294,17 @@ export const protocolData = {
         },
         {
             "id": "11",
-            "nombre": "POSTURA CEFÁLICA",
+            "nombre": "OBSERVACIÓN POSTURAL Y CRANEOCERVICAL",
             "campos": [
-                { "nombre": "Descripción de Postura Cefálica", "valor": "" }
+                { "nombre": "Descripción Adicional", "valor": "" }
+            ],
+            "tipo": "tabla_checkbox",
+            "columnas": ["Hallazgo", "Sí", "No", "Observaciones"],
+            "filas": [
+                { "item": "Cabeza Adelantada", "valores": { "Sí": false, "No": false }, "observaciones": "" },
+                { "item": "Asimetrías Cervicales", "valores": { "Sí": false, "No": false }, "observaciones": "" },
+                { "item": "Hombros Elevados", "valores": { "Sí": false, "No": false }, "observaciones": "" },
+                { "item": "Hipertonia Cervical", "valores": { "Sí": false, "No": false }, "observaciones": "" }
             ]
         },
         {
