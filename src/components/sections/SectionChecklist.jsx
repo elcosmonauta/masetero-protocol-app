@@ -15,25 +15,32 @@ const SectionChecklist = ({ data, onChange }) => {
             // The prompt doesn't strictly specify, but usually "Scale 0-3" is mutually exclusive.
             // Let's implement mutually exclusive for numeric keys.
 
-            if (data.valores && data.valores[value] !== undefined) {
-                // It's inside a 'valores' object
+            if (row.valores && row.valores[value] !== undefined) {
                 const newValores = { ...row.valores };
-                // Reset others if numeric scale
-                Object.keys(newValores).forEach(k => newValores[k] = false);
-                newValores[value] = true;
+                const isCurrentlyChecked = newValores[value];
+
+                // Mutually exclusive: if we check one, we uncheck others
+                // But if we click the same one, we toggle it off
+                if (isCurrentlyChecked) {
+                    newValores[value] = false;
+                } else {
+                    Object.keys(newValores).forEach(k => newValores[k] = false);
+                    newValores[value] = true;
+                }
                 row.valores = newValores;
             } else if (row.valores) {
-                // It has boolean values inside 'valores'
+                // If it has 'valores' but the key doesn't match exactly? 
+                // Should not happen with current data, but let's be safe.
                 const newValores = { ...row.valores };
-                Object.keys(newValores).forEach(k => newValores[k] = false); // Mutually exclusive
-                newValores[value] = true;
+                if (newValores[value]) {
+                    newValores[value] = false;
+                } else {
+                    Object.keys(newValores).forEach(k => newValores[k] = false);
+                    newValores[value] = true;
+                }
                 row.valores = newValores;
-            } else {
-                // It's a direct property like 'presente', 'ausente', 'hiper'
-                // We map the column name to the property key.
-                // Simplified: loop keys and set false, then set target true
-                // For now, let's assume 'valores' structure mostly.
             }
+
         } else if (type === 'observaciones') {
             row.observaciones = value;
         } else if (type === 'campo_extra') {
